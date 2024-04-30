@@ -1,5 +1,6 @@
-import {NextRequest, NextResponse} from 'next/server'
 import OpenAI from 'openai'
+import {NextRequest} from 'next/server'
+
 
 // this enables Edge Functions in Vercel
 // see https://vercel.com/blog/gpt-3-app-next-js-vercel-edge-functions
