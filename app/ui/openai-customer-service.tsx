@@ -5,7 +5,6 @@ import { AssistantStream } from 'openai/lib/AssistantStream';
 
 
 export default function OpenAICustomerService({    
-    assistantId = "",
     greeting = "I am a helpful chat assistant. How can I help you?",
 }) {
 
@@ -29,7 +28,6 @@ export default function OpenAICustomerService({
     const response = await fetch('/api/openai-customer-service', {
         method: 'POST',
         body: JSON.stringify({
-            assistantId: assistantId,
             threadId: threadId,
             content: prompt,
         }),

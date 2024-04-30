@@ -29,14 +29,19 @@ export async function POST(request:NextRequest) {
         }
     );
 
+    // get assistant id from environment
+    const assistant_id = process.env.OPENAI_ASSISTANT_ID;
+    if (assistant_id == null) {
+        return new Response("OpenAI Assistant ID not set", {status: 500});
+    }   
+
     // create a run
-    const run = openai.beta.threads.runs.createAndStream(
+    const stream = await openai.beta.threads.runs.create(
         newMessage.threadId, 
-        {assistant_id: newMessage.assistantId, stream:true}
+        {assistant_id, stream:true}
     );
     
 
-    const stream = run.toReadableStream();
-    return new Response(stream);
+    return new Response(stream.toReadableStream());
 }
 

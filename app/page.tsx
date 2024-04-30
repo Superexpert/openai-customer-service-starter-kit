@@ -6,8 +6,7 @@ export default function Home() {
 
   return (
     <main>
-      <OpenAICustomerService 
-        assistantId="asst_QUGSKtAVkLx9QLNjcCryesyV" />
+      <OpenAICustomerService />
     </main>
   );
 }
